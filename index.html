@@ -3,117 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TELEGRAM KATIL</title>
+    <title>TELEGRAM</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            text-align: center;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
             padding: 20px;
-            text-align: center;
-            overflow: hidden;
         }
-
-        /* Sağ üstteki devasa hareketli ok */
-        .giant-arrow {
+        .ok {
             position: fixed;
-            top: 5px;
-            right: 15px;
-            font-size: 60px;
-            animation: point 0.8s infinite alternate;
-            z-index: 999;
+            top: 10px;
+            right: 20px;
+            font-size: 70px;
+            animation: zip 0.6s infinite alternate;
         }
-
-        @keyframes point {
-            from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(10px, -10px) scale(1.2); }
+        @keyframes zip {
+            from { transform: translateY(0); }
+            to { transform: translateY(-12px); }
         }
-
-        .alert-box {
-            background: #ff0050;
-            color: #fff;
-            font-size: 20px;
-            font-weight: 900;
-            padding: 12px 20px;
-            border-radius: 50px;
+        h1 {
+            font-size: 26px;
+            color: #ff0050;
             margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(255, 0, 80, 0.8);
-            border: 2px solid #fff;
+            line-height: 1.3;
         }
-
-        .step {
-            background: #111;
-            border: 2px solid #333;
-            border-radius: 16px;
-            padding: 15px;
-            width: 100%;
-            max-width: 350px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .step-num {
-            background: #00f2fe;
-            color: #000;
-            font-weight: bold;
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 14px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .step-text {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .btn-main {
+        .btn {
             display: block;
             width: 100%;
-            max-width: 350px;
+            max-width: 320px;
             background: #24a1de;
-            color: #ffffff;
-            text-decoration: none;
+            color: #fff;
             padding: 20px;
             font-size: 22px;
             font-weight: 900;
-            border-radius: 16px;
-            box-shadow: 0 0 25px rgba(36, 161, 222, 0.6);
-            border: 2px solid #fff;
-            text-transform: uppercase;
+            border-radius: 15px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Ekranın en üstünde sağ üstü gösteren devasa ok -->
-    <div class="giant-arrow">↗️</div>
+    <div class="ok">↗️</div>
 
-    <div class="alert-box">
-        ⚠️ SAĞ ÜSTTEKİ (⋮) BASTIN MI?
-    </div>
+    <h1>SAĞ ÜSTTEKİ (⋮) BASTIKTAN SONRA "TARAYICIDA AÇ" DE!</h1>
 
-    <div class="step">
-        <span class="step-num">1. ADIM</span>
-        <div class="step-text">Sağ üstteki <b>3 NOKTAYA (⋮)</b> bas!</div>
-    </div>
-
-    <div class="step">
-        <span class="step-num">2. ADIM</span>
-        <div class="step-text"><b>"TARAYICIDA AÇ"</b> seç!</div>
-    </div>
-
-    <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn-main">
-        TELEGRAM'A GİT 👉
-    </a>
+    <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn">TELEGRAM'A GİT</a>
 
 </body>
 </html>
