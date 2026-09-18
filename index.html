@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YENİ HAYAT - Telegram Katılım</title>
+    <title>YENİ HAYAT</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -38,6 +38,8 @@
             font-weight: bold;
             border-radius: 12px;
             transition: 0.2s;
+            cursor: pointer;
+            border: none;
         }
         .btn:active { transform: scale(0.98); background: #1c8adb; }
     </style>
@@ -46,9 +48,28 @@
     <div class="card">
         <h2>YENİ HAYAT</h2>
         <p>Telegram grubumuza katılmak için aşağıdaki butona dokunun.</p>
-        <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn" target="_blank" rel="noopener noreferrer">
-            Telegram Grubuna Katıl
-        </a>
+        <button onclick="openTelegram()" class="btn">Telegram Grubuna Katıl</button>
     </div>
+
+    <script>
+        function openTelegram() {
+            var inviteHash = "+SpvyhdHuv7QxYTNk";
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            if (isAndroid) {
+                // Android için TikTok tarayıcısını dışarı yönlendiren Intent URL'i
+                window.location.href = "intent://joinchat/" + inviteHash.replace("+", "") + "#Intent;package=org.telegram.messenger;scheme=tg;end;";
+                setTimeout(function() {
+                    window.location.href = "https://t.me/" + inviteHash;
+                }, 1500);
+            } else if (isIOS) {
+                // iOS için t.me bağlantısı
+                window.location.href = "https://t.me/" + inviteHash;
+            } else {
+                window.location.href = "https://t.me/" + inviteHash;
+            }
+        }
+    </script>
 </body>
 </html>
