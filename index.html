@@ -3,115 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YENİ HAYAT - Telegram Katılım</title>
+    <title>TELEGRAM KATIL</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #0f172a;
+            background-color: #000000;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             padding: 20px;
             text-align: center;
+            overflow: hidden;
         }
 
-        /* Sağ üstteki hareketli yönlendirme oku */
-        .top-arrow-container {
+        /* Sağ üstteki devasa hareketli ok */
+        .giant-arrow {
             position: fixed;
-            top: 15px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #ef4444;
-            color: #fff;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
-            animation: bounce 1.2s infinite alternate;
+            top: 5px;
+            right: 15px;
+            font-size: 60px;
+            animation: point 0.8s infinite alternate;
             z-index: 999;
         }
 
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-8px); }
+        @keyframes point {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(10px, -10px) scale(1.2); }
         }
 
-        .card {
-            background: #1e293b;
-            padding: 30px 20px;
-            border-radius: 20px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid #334155;
-            margin-top: 40px;
+        .alert-box {
+            background: #ff0050;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 12px 20px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(255, 0, 80, 0.8);
+            border: 2px solid #fff;
         }
 
-        h2 { font-size: 22px; margin-bottom: 10px; color: #38bdf8; }
-        p { font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
-
-        .instruction-box {
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px dashed #38bdf8;
-            border-radius: 12px;
+        .step {
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 16px;
             padding: 15px;
+            width: 100%;
+            max-width: 350px;
             margin-bottom: 20px;
             text-align: left;
         }
 
-        .instruction-box ol {
-            padding-left: 20px;
-            font-size: 13px;
-            color: #e2e8f0;
-            line-height: 1.8;
+        .step-num {
+            background: #00f2fe;
+            color: #000;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 8px;
         }
 
-        .btn {
+        .step-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .btn-main {
             display: block;
             width: 100%;
+            max-width: 350px;
             background: #24a1de;
             color: #ffffff;
             text-decoration: none;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 12px;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(36, 161, 222, 0.3);
+            padding: 20px;
+            font-size: 22px;
+            font-weight: 900;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(36, 161, 222, 0.6);
+            border: 2px solid #fff;
+            text-transform: uppercase;
         }
-
-        .btn:active { transform: scale(0.98); background: #1c8adb; }
     </style>
 </head>
 <body>
 
-    <!-- Yönlendirme İpucu -->
-    <div class="top-arrow-container">
-        <span>Sağ üstteki 3 noktaya basın</span> ↗️
+    <!-- Ekranın en üstünde sağ üstü gösteren devasa ok -->
+    <div class="giant-arrow">↗️</div>
+
+    <div class="alert-box">
+        ⚠️ SAĞ ÜSTTEKİ (⋮) BASTIN MI?
     </div>
 
-    <div class="card">
-        <h2>YENİ HAYAT</h2>
-        <p>Telegram grubumuza sorunsuz katılabilmek için aşağıdaki adımı uygulayın:</p>
-
-        <div class="instruction-box">
-            <ol>
-                <li>Sağ üstteki <strong>üç noktaya (⋮)</strong> veya paylaş butonuna dokunun.</li>
-                <li><strong>"Tarayıcıda Aç"</strong> veya <strong>"Chrome / Safari ile Aç"</strong> seçeneğini seçin.</li>
-            </ol>
-        </div>
-
-        <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn">
-            Telegram Grubuna Katıl
-        </a>
+    <div class="step">
+        <span class="step-num">1. ADIM</span>
+        <div class="step-text">Sağ üstteki <b>3 NOKTAYA (⋮)</b> bas!</div>
     </div>
+
+    <div class="step">
+        <span class="step-num">2. ADIM</span>
+        <div class="step-text"><b>"TARAYICIDA AÇ"</b> seç!</div>
+    </div>
+
+    <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn-main">
+        TELEGRAM'A GİT 👉
+    </a>
 
 </body>
 </html>
