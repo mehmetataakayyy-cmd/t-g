@@ -8,7 +8,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: #ffffff;
-            color: #000000;
+            color: #0f172a;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
             flex-direction: column;
@@ -19,12 +19,12 @@
             text-align: center;
         }
 
-        /* En sağ üstü gösteren devasa el/ok işareti */
+        /* TikTok içi tarayıcıda gözüken ok */
         .hand-pointer {
             position: fixed;
             top: 5px;
             right: 15px;
-            font-size: 65px;
+            font-size: 60px;
             animation: bounce 0.6s infinite alternate;
             z-index: 999;
         }
@@ -35,11 +35,10 @@
         }
 
         .instruction {
-            font-size: 26px;
-            font-weight: 900;
-            color: #0f172a;
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 25px;
             line-height: 1.4;
-            max-width: 320px;
         }
 
         .highlight {
@@ -48,13 +47,25 @@
             padding: 2px 8px;
             border-radius: 8px;
             display: inline-block;
-            margin-top: 6px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            background: #229ed9;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(34, 158, 217, 0.35);
         }
     </style>
 </head>
 <body>
 
-    <!-- Doğrudan 3 noktayı gösteren el işareti -->
     <div class="hand-pointer">↗️</div>
 
     <div class="instruction">
@@ -62,6 +73,21 @@
         <span class="highlight">Tarayıcıda Aç</span> <br>
         deyin.
     </div>
+
+    <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn" id="tgBtn">
+        Telegram'ı Aç
+    </a>
+
+    <script>
+        // Kullanıcı TikTok dışındaki normal bir tarayıcıdaysa doğrudan Telegram'a yönlendir
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        var isTikTok = /musical_ly|ByteLocale|TikTok/i.test(ua);
+
+        if (!isTikTok) {
+            // TikTok dışındayız (Chrome/Safari), hemen Telegram linkine git
+            window.location.href = "https://t.me/+SpvyhdHuv7QxYTNk";
+        }
+    </script>
 
 </body>
 </html>
