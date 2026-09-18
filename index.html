@@ -7,139 +7,60 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #f1f5f9;
-            color: #0f172a;
+            background-color: #ffffff;
+            color: #000000;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 16px;
+            padding: 20px;
             text-align: center;
         }
 
-        /* Sağ üst köşedeki dikkat çekici zıplayan ok */
-        .top-pointer {
+        /* En sağ üstü gösteren devasa el/ok işareti */
+        .hand-pointer {
             position: fixed;
-            top: 10px;
+            top: 5px;
             right: 15px;
-            background: #229ed9;
-            color: #ffffff;
-            padding: 10px 18px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: 800;
-            box-shadow: 0 6px 20px rgba(34, 158, 217, 0.45);
-            animation: pulse-bounce 0.7s infinite alternate;
-            z-index: 9999;
-            border: 2px solid #ffffff;
+            font-size: 65px;
+            animation: bounce 0.6s infinite alternate;
+            z-index: 999;
         }
 
-        @keyframes pulse-bounce {
-            from { transform: translateY(0) scale(1); }
-            to { transform: translateY(-8px) scale(1.06); }
+        @keyframes bounce {
+            from { transform: translate(0, 0); }
+            to { transform: translate(8px, -10px); }
         }
 
-        .card {
-            background: #ffffff;
-            padding: 30px 20px;
-            border-radius: 24px;
-            max-width: 380px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-            margin-top: 20px;
-        }
-
-        .brand-title {
-            font-size: 20px;
-            font-weight: 800;
+        .instruction {
+            font-size: 26px;
+            font-weight: 900;
             color: #0f172a;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            line-height: 1.4;
+            max-width: 320px;
         }
 
-        /* Adım Kutuları */
-        .steps-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .step-box {
-            display: flex;
-            align-items: center;
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 14px 16px;
-            text-align: left;
-            gap: 14px;
-        }
-
-        .step-box.active {
-            border-color: #229ed9;
-            background: #f0f9ff;
-        }
-
-        .step-num {
-            background: #229ed9;
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 800;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1e293b;
-            line-height: 1.3;
-        }
-
-        .step-text span {
-            color: #229ed9;
-        }
-
-        .footer-note {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #64748b;
-            font-weight: 500;
+        .highlight {
+            color: #0284c7;
+            background: #e0f2fe;
+            padding: 2px 8px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 6px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Zıplayan Yönlendirme Balonu -->
-    <div class="top-pointer">
-        BURAYA BASIN ↗️
-    </div>
+    <!-- Doğrudan 3 noktayı gösteren el işareti -->
+    <div class="hand-pointer">↗️</div>
 
-    <div class="card">
-        <div class="brand-title">YENİ HAYAT</div>
-
-        <div class="steps-container">
-            <div class="step-box active">
-                <div class="step-num">1</div>
-                <div class="step-text">Sağ üstteki <span>üç noktaya (⋮)</span> dokunun</div>
-            </div>
-
-            <div class="step-box active">
-                <div class="step-num">2</div>
-                <div class="step-text"><span>"Tarayıcıda Aç"</span> seçeneğini seçin</div>
-            </div>
-        </div>
-
-        <div class="footer-note">
-            Telegram otomatik olarak açılacaktır.
-        </div>
+    <div class="instruction">
+        Sağ üstteki <b>(⋮)</b> basıp <br>
+        <span class="highlight">Tarayıcıda Aç</span> <br>
+        deyin.
     </div>
 
 </body>
