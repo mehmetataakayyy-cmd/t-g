@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Grubuna Katıl</title>
+    <title>YENİ HAYAT</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -18,29 +18,30 @@
             text-align: center;
         }
 
-        /* Yönlendirme İpucu */
+        /* Sağ üst köşedeki hareketli yönlendirme balonu */
         .top-arrow {
             position: fixed;
             top: 12px;
             right: 18px;
             background: #0284c7;
             color: #ffffff;
-            padding: 8px 14px;
+            padding: 10px 16px;
             border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
-            animation: bounce 1s infinite alternate;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4);
+            animation: bounce 0.8s infinite alternate;
+            z-index: 999;
         }
 
         @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-6px); }
+            from { transform: translateY(0) scale(1); }
+            to { transform: translateY(-8px) scale(1.05); }
         }
 
         .card {
             background: #ffffff;
-            padding: 35px 25px;
+            padding: 40px 25px;
             border-radius: 24px;
             max-width: 380px;
             width: 100%;
@@ -69,53 +70,41 @@
             font-size: 22px;
             font-weight: 700;
             color: #0f172a;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        p {
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 25px;
+        .action-notice {
+            background: #f0f9ff;
+            border: 2px dashed #0284c7;
+            border-radius: 16px;
+            padding: 20px 15px;
+            margin-top: 15px;
+        }
+
+        .action-notice p {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0369a1;
             line-height: 1.5;
         }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            background: #229ed9;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 16px;
-            font-size: 17px;
-            font-weight: 600;
-            border-radius: 14px;
-            box-shadow: 0 4px 14px rgba(34, 158, 217, 0.35);
-            transition: background 0.2s;
-        }
-
-        .btn:active {
-            background: #1d89be;
-        }
-
-        .sub-text {
-            margin-top: 16px;
-            font-size: 12px;
-            color: #94a3b8;
+        .action-notice span {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #64748b;
         }
     </style>
 </head>
 <body>
 
-    <!-- Sağ Üst Yönlendirme İpucu -->
+    <!-- Sağ Üst Yönlendirme Balonu -->
     <div class="top-arrow">
         Sağ üstten "Tarayıcıda Aç" seçin ↗️
     </div>
 
     <div class="card">
-        <!-- Telegram Logosu -->
         <div class="icon-box">
             <svg viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .54-1.42.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.38-.49 1.07-.75 4.19-1.82 6.98-3.02 8.37-3.6 3.98-1.65 4.81-1.94 5.35-1.95.12 0 .38.03.55.17.14.12.18.28.2.4.02.09.02.22-.01.37z"/>
@@ -123,14 +112,10 @@
         </div>
 
         <h1>YENİ HAYAT</h1>
-        <p>Aşağıdaki butona dokunarak Telegram grubumuza hemen katılabilirsiniz.</p>
 
-        <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn">
-            Telegram Grubuna Katıl
-        </a>
-
-        <div class="sub-text">
-            Açılmazsa sağ üstteki üç noktaya basıp tarayıcıda açın.
+        <div class="action-notice">
+            <p>Devam etmek için sağ üstteki üç noktaya (⋮) tıklayıp "Tarayıcıda Aç" seçeneğini seçin.</p>
+            <span>Devamında Telegram otomatik açılacaktır.</span>
         </div>
     </div>
 
