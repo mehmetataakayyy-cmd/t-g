@@ -47,33 +47,41 @@
 <body>
     <div class="card">
         <h2>YENİ HAYAT</h2>
-        <p>Telegram grubumuza aktarılıyorsunuz...</p>
-        <button onclick="openApp()" class="btn">Telegram Grubuna Katıl</button>
+        <p>Telegram grubuna aktarılıyorsunuz...</p>
+        <button onclick="launchTelegram()" class="btn">Telegram'a Geç</button>
     </div>
 
     <script>
-        function openApp() {
+        function launchTelegram() {
             var inviteHash = "SpvyhdHuv7QxYTNk";
-            var isAndroid = /Android/i.test(navigator.userAgent);
-            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            var rawUrl = "https://t.me/+" + inviteHash;
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+            var isAndroid = /Android/i.test(ua);
+            var isIOS = /iPhone|iPad|iPod/i.test(ua);
 
             if (isAndroid) {
-                // Android için Chrome/Telegram uygulamasını zorla başlatma intent'i
+                // 1. Doğrudan Telegram uygulamasını açmayı dene
                 window.location.href = "intent://joinchat/" + inviteHash + "#Intent;package=org.telegram.messenger;scheme=tg;end;";
+                
+                // 2. Eğer uygulama açılmazsa TikTok içi tarayıcıdan çıkıp varsayılan tarayıcıda (Chrome) t.me linkini aç
+                setTimeout(function() {
+                    window.location.href = "intent://" + rawUrl.replace("https://", "") + "#Intent;scheme=https;package=com.android.chrome;end;";
+                }, 1000);
             } else if (isIOS) {
-                // iOS Safari/Telegram açılışı
+                // iOS cihazlar için doğrudan Telegram derin bağlantısı
                 window.location.href = "tg://join?invite=" + inviteHash;
                 setTimeout(function() {
-                    window.location.href = "https://t.me/+" + inviteHash;
+                    window.location.href = rawUrl;
                 }, 1000);
             } else {
-                window.location.href = "https://t.me/+" + inviteHash;
+                window.location.href = rawUrl;
             }
         }
 
-        // TikTok içindeki tarayıcıyı algılayıp otomatik fırlatma yap
+        // Sayfa yüklendiğinde otomatik yönlendirmeyi tetikle
         window.onload = function() {
-            openApp();
+            setTimeout(launchTelegram, 300);
         };
     </script>
 </body>
