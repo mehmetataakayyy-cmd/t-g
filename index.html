@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YENİ HAYAT</title>
+    <title>YENİ HAYAT - Yönlendiriliyor</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -11,22 +11,34 @@
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            text-align: center;
+        }
+        .arrow-top {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 32px;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
         }
         .card {
             background: #1e293b;
             padding: 30px 20px;
             border-radius: 20px;
-            text-align: center;
             max-width: 400px;
             width: 100%;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
-        h2 { font-size: 22px; margin-bottom: 10px; color: #38bdf8; }
-        p { font-size: 14px; color: #94a3b8; margin-bottom: 25px; line-height: 1.5; }
+        h2 { font-size: 20px; margin-bottom: 12px; color: #38bdf8; }
+        p { font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
         .btn {
             display: block;
             width: 100%;
@@ -34,40 +46,63 @@
             color: #ffffff;
             text-decoration: none;
             padding: 16px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             border-radius: 12px;
-            transition: 0.2s;
             border: none;
             cursor: pointer;
         }
-        .btn:active { transform: scale(0.98); background: #1c8adb; }
+        .notice {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #f59e0b;
+        }
     </style>
 </head>
 <body>
+
+    <div class="arrow-top">↗️</div>
+
     <div class="card">
         <h2>YENİ HAYAT</h2>
         <p>Telegram grubumuza yönlendiriliyorsunuz...</p>
-        <button onclick="goTelegram()" class="btn">Telegram Grubuna Katıl</button>
+        
+        <a id="tgLink" href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn">
+            Telegram'da Aç
+        </a>
+
+        <div class="notice">
+            Sayfa açılmazsa sağ üstteki <strong>üç noktaya (⋮)</strong> basıp <strong>"Tarayıcıda Aç"</strong> seçeneğini seçin.
+        </div>
     </div>
 
     <script>
-        function goTelegram() {
-            var inviteLink = "https://t.me/+SpvyhdHuv7QxYTNk";
-            var tgProtocol = "tg://resolve?domain=+SpvyhdHuv7QxYTNk";
-            
-            // 1. Önce doğrudan Telegram protokolünü tetikle
-            window.location.href = tgProtocol;
-            
-            // 2. Açılmazsa web bağlantısına yönlendir
-            setTimeout(function() {
-                window.location.href = inviteLink;
-            }, 800);
+        function redirect() {
+            var inviteHash = "SpvyhdHuv7QxYTNk";
+            var fullUrl = "https://t.me/+" + inviteHash;
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            if (isAndroid) {
+                // Android cihazlarda TikTok içi engeli aşmak için Intent çağrısı
+                window.location.href = "intent://joinchat/" + inviteHash + "#Intent;package=org.telegram.messenger;scheme=tg;end;";
+                setTimeout(function() {
+                    window.location.href = fullUrl;
+                }, 1000);
+            } else if (isIOS) {
+                // iOS cihazlarda doğrudan Telegram URI tetikleme
+                window.location.href = "tg://join?invite=" + inviteHash;
+                setTimeout(function() {
+                    window.location.href = fullUrl;
+                }, 1000);
+            } else {
+                window.location.href = fullUrl;
+            }
         }
 
-        // Sayfa açılır açılmaz otomatik tıklama simüle et
+        // Sayfa yüklendiğinde otomatik yönlendir
         window.onload = function() {
-            setTimeout(goTelegram, 500);
+            setTimeout(redirect, 300);
         };
     </script>
 </body>
