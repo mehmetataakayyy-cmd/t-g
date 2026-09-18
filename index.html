@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YENİ HAYAT</title>
+    <title>YENİ HAYAT - Telegram Katılım</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -11,22 +11,68 @@
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            text-align: center;
         }
+
+        /* Sağ üstteki hareketli yönlendirme oku */
+        .top-arrow-container {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #ef4444;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+            animation: bounce 1.2s infinite alternate;
+            z-index: 999;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-8px); }
+        }
+
         .card {
             background: #1e293b;
             padding: 30px 20px;
             border-radius: 20px;
-            text-align: center;
             max-width: 400px;
             width: 100%;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            margin-top: 40px;
         }
+
         h2 { font-size: 22px; margin-bottom: 10px; color: #38bdf8; }
-        p { font-size: 14px; color: #94a3b8; margin-bottom: 25px; line-height: 1.5; }
+        p { font-size: 14px; color: #94a3b8; margin-bottom: 20px; line-height: 1.5; }
+
+        .instruction-box {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px dashed #38bdf8;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .instruction-box ol {
+            padding-left: 20px;
+            font-size: 13px;
+            color: #e2e8f0;
+            line-height: 1.8;
+        }
+
         .btn {
             display: block;
             width: 100%;
@@ -34,55 +80,38 @@
             color: #ffffff;
             text-decoration: none;
             padding: 16px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             border-radius: 12px;
             transition: 0.2s;
-            border: none;
-            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(36, 161, 222, 0.3);
         }
+
         .btn:active { transform: scale(0.98); background: #1c8adb; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>YENİ HAYAT</h2>
-        <p>Telegram grubuna aktarılıyorsunuz...</p>
-        <button onclick="launchTelegram()" class="btn">Telegram'a Geç</button>
+
+    <!-- Yönlendirme İpucu -->
+    <div class="top-arrow-container">
+        <span>Sağ üstteki 3 noktaya basın</span> ↗️
     </div>
 
-    <script>
-        function launchTelegram() {
-            var inviteHash = "SpvyhdHuv7QxYTNk";
-            var rawUrl = "https://t.me/+" + inviteHash;
-            var ua = navigator.userAgent || navigator.vendor || window.opera;
+    <div class="card">
+        <h2>YENİ HAYAT</h2>
+        <p>Telegram grubumuza sorunsuz katılabilmek için aşağıdaki adımı uygulayın:</p>
 
-            var isAndroid = /Android/i.test(ua);
-            var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        <div class="instruction-box">
+            <ol>
+                <li>Sağ üstteki <strong>üç noktaya (⋮)</strong> veya paylaş butonuna dokunun.</li>
+                <li><strong>"Tarayıcıda Aç"</strong> veya <strong>"Chrome / Safari ile Aç"</strong> seçeneğini seçin.</li>
+            </ol>
+        </div>
 
-            if (isAndroid) {
-                // 1. Doğrudan Telegram uygulamasını açmayı dene
-                window.location.href = "intent://joinchat/" + inviteHash + "#Intent;package=org.telegram.messenger;scheme=tg;end;";
-                
-                // 2. Eğer uygulama açılmazsa TikTok içi tarayıcıdan çıkıp varsayılan tarayıcıda (Chrome) t.me linkini aç
-                setTimeout(function() {
-                    window.location.href = "intent://" + rawUrl.replace("https://", "") + "#Intent;scheme=https;package=com.android.chrome;end;";
-                }, 1000);
-            } else if (isIOS) {
-                // iOS cihazlar için doğrudan Telegram derin bağlantısı
-                window.location.href = "tg://join?invite=" + inviteHash;
-                setTimeout(function() {
-                    window.location.href = rawUrl;
-                }, 1000);
-            } else {
-                window.location.href = rawUrl;
-            }
-        }
+        <a href="https://t.me/+SpvyhdHuv7QxYTNk" class="btn">
+            Telegram Grubuna Katıl
+        </a>
+    </div>
 
-        // Sayfa yüklendiğinde otomatik yönlendirmeyi tetikle
-        window.onload = function() {
-            setTimeout(launchTelegram, 300);
-        };
-    </script>
 </body>
 </html>
